@@ -4,8 +4,15 @@ import 'package:moltaqa/core/shared_widgets/custom_text_form_field.dart';
 import 'package:moltaqa/core/theming/colors_manager.dart';
 import 'package:moltaqa/core/theming/text_styles.dart';
 
-class LoginWidget extends StatelessWidget {
+class LoginWidget extends StatefulWidget {
   const LoginWidget({super.key});
+
+  @override
+  State<LoginWidget> createState() => _LoginWidgetState();
+}
+
+class _LoginWidgetState extends State<LoginWidget> {
+  bool passwordOff = true;
 
   @override
   Widget build(BuildContext context) {
@@ -20,16 +27,29 @@ class LoginWidget extends StatelessWidget {
           textInputAction: TextInputAction.next,
         ),
         SizedBox(height: 10),
-        CustomTextFormField(
-          hintText: "Password",
-          prefixIcon: Icon(
-            Icons.lock_outline,
-            color: ColorsManager.primaryColor,
-          ),
-          suffixIcon: Icon(
-            Icons.visibility_off_outlined,
-            color: ColorsManager.grey,
-          ),
+        StatefulBuilder(
+          builder: (context, setstate) {
+            return CustomTextFormField(
+              hintText: "Password",
+              isObscureText: passwordOff,
+              prefixIcon: Icon(
+                Icons.lock_outline,
+                color: ColorsManager.primaryColor,
+              ),
+              suffixIcon: IconButton(
+                icon: Icon(
+                  passwordOff
+                      ? Icons.visibility_off_outlined
+                      : Icons.visibility_outlined,
+                ),
+                color: ColorsManager.grey,
+                onPressed: () {
+                  setstate(() {});
+                  passwordOff = !passwordOff;
+                },
+              ),
+            );
+          },
         ),
         SizedBox(height: 30),
         CustomButton(text: "Sign in", textColor: ColorsManager.white),

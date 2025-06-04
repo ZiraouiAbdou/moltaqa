@@ -36,7 +36,8 @@ class AuthScreen extends StatelessWidget {
                     height: 50,
                     child: TabBar(
                       labelStyle: TextStylesManager.titleMedium,
-                      unselectedLabelStyle: TextStylesManager.titleMedium,
+                      unselectedLabelStyle: TextStylesManager.titleMedium
+                          .copyWith(fontWeight: FontWeight.w400),
                       dividerHeight: 0,
                       splashFactory: NoSplash.splashFactory,
                       overlayColor: WidgetStateProperty.resolveWith<Color?>((
@@ -48,8 +49,6 @@ class AuthScreen extends StatelessWidget {
                             : Colors.transparent;
                       }),
                       labelColor: Colors.white,
-                      unselectedLabelColor: Colors.black,
-
                       indicator: BoxDecoration(
                         color: ColorsManager.primaryColor,
                         borderRadius: BorderRadius.circular(20),
@@ -66,7 +65,7 @@ class AuthScreen extends StatelessWidget {
                         vertical: 0,
                       ),
                       child: TabBarView(
-                        children: [LoginWidget(), SignupWidget()],
+                        children: [const LoginWidget(), const SignupWidget()],
                       ),
                     ),
                   ),
