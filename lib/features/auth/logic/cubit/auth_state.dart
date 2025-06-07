@@ -37,3 +37,20 @@ final class LogoutFailed extends AuthState {
 }
 
 final class LogoutSuccess extends AuthState {}
+
+// Forgot password
+final class ForgotPasswordLoading extends AuthState {}
+
+final class ForgotPasswordFailed extends AuthState {
+  final String error;
+
+  ForgotPasswordFailed(this.error);
+}
+
+final class ForgotPasswordSuccess extends AuthState {}
+
+// count down
+class CountdownUpdated extends AuthState {
+  final int remainingSeconds;
+  CountdownUpdated(this.remainingSeconds);
+}

@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
@@ -52,5 +53,38 @@ class AuthCubit extends Cubit<AuthState> {
       log("Logout error: ${e.toString()}");
       emit(LogoutFailed(e.toString()));
     }
+  }
+
+  Future<void> sendPasswordResetEmail({required String email}) async {
+    try {
+      emit(ForgotPasswordLoading());
+      await _authRepo.sendPasswordResetEmail(email);
+      emit(ForgotPasswordSuccess());
+    } catch (e) {
+      log("ForgotPassword error: ${e.toString()}");
+      emit(ForgotPasswordFailed(e.toString()));
+    }
+  }
+
+  int resetPasswordCountdown = 0;
+  Timer? _countdownTimer;
+
+  void startPasswordResetCountdown() {
+    resetPasswordCountdown = 60;
+    _countdownTimer?.cancel();
+    _countdownTimer = Timer.periodic(Duration(seconds: 1), (timer) {
+      if (resetPasswordCountdown > 0) {
+        resetPasswordCountdown--;
+        emit(CountdownUpdated(resetPasswordCountdown));
+      } else {
+        _countdownTimer?.cancel();
+      }
+    });
+  }
+
+  @override
+  Future<void> close() {
+    _countdownTimer?.cancel();
+    return super.close();
   }
 }

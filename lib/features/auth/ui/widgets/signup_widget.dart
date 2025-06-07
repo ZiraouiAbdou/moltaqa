@@ -138,9 +138,12 @@ class _SignupWidgetState extends State<SignupWidget> {
           BlocConsumer<AuthCubit, AuthState>(
             listener: (context, state) {
               if (state is SignupFailed) {
-                ScaffoldMessenger.of(
-                  context,
-                ).showSnackBar(SnackBar(content: Text(state.error)));
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(state.error),
+                    backgroundColor: ColorsManager.red,
+                  ),
+                );
               }
               if (state is SignupSuccess) {
                 context.go(RoutesConstants.homeScreen);
@@ -157,9 +160,9 @@ class _SignupWidgetState extends State<SignupWidget> {
                   onTap: () {
                     if (_formKey.currentState?.validate() == true) {
                       context.read<AuthCubit>().createUser(
-                        email: emailController.text,
-                        password: passwordController.text,
-                        userName: usernameController.text,
+                        email: emailController.text.trim(),
+                        password: passwordController.text.trim(),
+                        userName: usernameController.text.trim(),
                       );
                     }
                   },

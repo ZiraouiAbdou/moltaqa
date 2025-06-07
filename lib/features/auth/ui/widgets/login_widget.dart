@@ -83,9 +83,12 @@ class _LoginWidgetState extends State<LoginWidget> {
           BlocConsumer<AuthCubit, AuthState>(
             listener: (context, state) {
               if (state is LoginFailed) {
-                ScaffoldMessenger.of(
-                  context,
-                ).showSnackBar(SnackBar(content: Text(state.error)));
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(state.error),
+                    backgroundColor: ColorsManager.red,
+                  ),
+                );
               }
               if (state is LoginSuccess) {
                 context.go(RoutesConstants.authRedirector);
@@ -103,8 +106,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                   onTap: () {
                     if (_formKey.currentState?.validate() == true) {
                       context.read<AuthCubit>().loginUser(
-                        email: emailController.text,
-                        password: passwordController.text,
+                        email: emailController.text.trim(),
+                        password: passwordController.text.trim(),
                       );
                     }
                   },
@@ -114,9 +117,10 @@ class _LoginWidgetState extends State<LoginWidget> {
           ),
 
           SizedBox(height: 10),
-          // add timer after each click
           TextButton(
-            onPressed: () {},
+            onPressed: () {
+              context.push(RoutesConstants.forgotPassword);
+            },
             child: Text(
               "Forgot Password?",
               style: TextStylesManager.bodyLarge.copyWith(
