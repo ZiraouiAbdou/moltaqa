@@ -58,7 +58,7 @@ class AuthScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 0.5.sh,
+                    height: 0.6.sh,
                     child: Padding(
                       padding: EdgeInsets.symmetric(
                         horizontal: 15,
