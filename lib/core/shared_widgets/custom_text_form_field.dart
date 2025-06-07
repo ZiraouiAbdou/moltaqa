@@ -20,6 +20,7 @@ class CustomTextFormField extends StatelessWidget {
   final bool? readOnly;
   final String? errorText;
   final TextInputAction? textInputAction;
+  final AutovalidateMode? autovalidateMode;
 
   const CustomTextFormField({
     super.key,
@@ -40,6 +41,7 @@ class CustomTextFormField extends StatelessWidget {
     this.textInputAction,
     this.readOnly,
     this.errorText,
+    this.autovalidateMode,
   });
 
   @override
@@ -47,8 +49,10 @@ class CustomTextFormField extends StatelessWidget {
     return TextFormField(
       maxLength: maxLength,
       validator: validator,
+      autovalidateMode: autovalidateMode,
       controller: controller,
       readOnly: readOnly ?? false,
+
       decoration: InputDecoration(
         isDense: true,
         contentPadding:
