@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "566060845931",
+    "project_id": "moltaqa-4ee70",
+    "storage_bucket": "moltaqa-4ee70.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:566060845931:android:aaf28ba9d77b7017245a2e",
+        "android_client_info": {
+          "package_name": "com.example.moltaqa"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHYmGsH0qcsXNu4m-TSDNPiEOXpvKpDjI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
