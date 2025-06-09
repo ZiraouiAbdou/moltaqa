@@ -11,4 +11,5 @@ class ColorsManager {
   static const white = Color(0xffFFFFFF);
   static const red = Color(0xffFF0000);
   static const green = Color(0xff4CAF50);
+  static const fillColor = Color(0xFFF5F5F5);
 }
