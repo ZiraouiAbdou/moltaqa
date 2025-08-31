@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
+import 'package:moltaqa/core/routes/routes_constants.dart';
 import 'package:moltaqa/core/theming/colors_manager.dart';
 import 'package:moltaqa/core/theming/text_styles.dart';
 
@@ -44,7 +46,10 @@ class LobbyPlayersListview extends StatelessWidget {
               ],
             ),
           ),
-
+          ElevatedButton(
+            onPressed: () => context.push(RoutesConstants.questionScreen),
+            child: Text("ppp"),
+          ),
           ListView.builder(
             physics: NeverScrollableScrollPhysics(),
             shrinkWrap: true,
