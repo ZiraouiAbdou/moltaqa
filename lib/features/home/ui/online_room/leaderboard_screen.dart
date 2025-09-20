@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:moltaqa/core/theming/text_styles.dart';
+import 'package:moltaqa/features/home/ui/widgets/online_room/game_floating_action_button.dart';
 import 'package:moltaqa/features/home/ui/widgets/online_room/leaderboard_player_card.dart';
 import 'package:moltaqa/features/home/ui/widgets/online_room/leaderboard_widget.dart';
 
@@ -56,6 +57,8 @@ class LeaderboardScreen extends StatelessWidget {
           ),
         ),
       ),
+      floatingActionButton: GameFloatingActionButton(text: "Next Answer"),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }

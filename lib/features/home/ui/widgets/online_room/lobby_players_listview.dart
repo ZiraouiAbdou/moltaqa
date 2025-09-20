@@ -48,8 +48,18 @@ class LobbyPlayersListview extends StatelessWidget {
           ),
           ElevatedButton(
             onPressed: () => context.push(RoutesConstants.questionScreen),
-            child: Text("ppp"),
+            child: Text("questions screen"),
           ),
+          ElevatedButton(
+            onPressed: () => context.push(RoutesConstants.leaderboardScreen),
+            child: Text("leaderboard screen"),
+          ),
+          ElevatedButton(
+            onPressed:
+                () => context.push(RoutesConstants.answerVerificationScreen),
+            child: Text("answer Verification Screen"),
+          ),
+
           ListView.builder(
             physics: NeverScrollableScrollPhysics(),
             shrinkWrap: true,
