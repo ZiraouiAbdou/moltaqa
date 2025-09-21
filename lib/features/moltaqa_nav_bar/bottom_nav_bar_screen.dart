@@ -1,5 +1,6 @@
 import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:moltaqa/core/theming/colors_manager.dart';
 import 'package:moltaqa/core/theming/text_styles.dart';
@@ -59,7 +60,7 @@ class _MoltaqaScaffoldWithNavBarState extends State<MoltaqaScaffoldWithNavBar> {
           _onTap(context, index);
         },
         kIconSize: 20,
-        kBottomRadius: 10,
+        kBottomRadius: 10.r,
       ),
     );
   }
